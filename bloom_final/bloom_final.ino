@@ -60,7 +60,7 @@ void humidityValueFunction() {
     return;
   }
   int humidtyConstrained = constrain(humiditySensor, 25, 100);
-  humidityIndicator = map(humidtyConstrained, 25, 100, 0, 10);
+  humidityIndicator = map(humidtyConstrained, 25, 100, 1, 10);
 }
 
 //creating an activate circuit feature for the ir sensor
@@ -264,6 +264,7 @@ void moistureLEDFunction() {
 
 void humidtyLEDFunction() {
   if (activateCircuit !=0) {
+    Serial.println(humidityIndicator);
     switch (humidityIndicator) {
       case 1:
         Serial.print("humidity: ");
